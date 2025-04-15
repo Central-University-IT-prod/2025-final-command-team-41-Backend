@@ -1,0 +1,46 @@
+test_name: Создание некорректных пользователей
+
+stages:
+  - name: Создание пользователя - неправильный email
+    request:
+      url: '{BASE_URL}/users'
+      method: POST
+      json:
+        email: aboba
+        full_name: Alex
+        password: REDACTED
+        is_business: True
+    response:
+      status_code: 422
+
+  - name: Создание пользователя - is_business не boolean [1]
+    request:
+      url: '{BASE_URL}/users'
+      method: POST
+      json:
+        email: aboba
+        full_name: Alex
+        password: REDACTED
+        is_business: 42
+    response:
+      status_code: 422
+
+  - name: Создание пользователя - is_business не boolean [2]
+    request:
+      url: '{BASE_URL}/users'
+      method: POST
+      json:
+        email: aboba@bubu.yow
+        full_name: Alex
+        password: REDACTED
+        is_business: fact check status - True ✅
+    response:
+      status_code: 422
+
+  - name: Создание пользователя - существующий пользователь
+    request:
+      url: '{BASE_URL}/users'
+      method: POST
+      json: !include components/users/user6.yml
+    response:
+      status_code: 409

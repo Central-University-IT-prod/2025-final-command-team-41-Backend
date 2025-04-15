@@ -1,0 +1,66 @@
+test_name: Создание пользователей
+
+stages:
+  - name: Создание пользователя [1]
+    request:
+      url: '{BASE_URL}/users'
+      method: POST
+      json: !include components/users/user1.yml
+    response:
+      status_code: 201
+
+  - name: Создание пользователя [2]
+    request:
+      url: '{BASE_URL}/users'
+      method: POST
+      json: !include components/users/user2.yml
+    response:
+      status_code: 201
+
+  - name: Создание пользователя [3]
+    request:
+      url: '{BASE_URL}/users'
+      method: POST
+      json: !include components/users/user3.yml
+    response:
+      status_code: 201
+
+  - name: Создание пользователя [4]
+    request:
+      url: '{BASE_URL}/users'
+      method: POST
+      json: !include components/users/user4.yml
+    response:
+      status_code: 201
+
+  - name: Создание пользователя [5]
+    request:
+      url: '{BASE_URL}/users'
+      method: POST
+      json: !include components/users/user5.yml
+    response:
+      status_code: 201
+
+  - name: Создание пользователя [6]
+    request:
+      url: '{BASE_URL}/users'
+      method: POST
+      json: !include components/users/user6.yml
+    response:
+      status_code: 201
+
+  - name: Создание пользователя [7]
+    request:
+      url: '{BASE_URL}/users'
+      method: POST
+      json: !include components/users/user7.yml
+    response:
+      status_code: 201
+
+  - name: Создание пользователя [8]
+    request:
+      url: '{BASE_URL}/users'
+      method: POST
+      json: !include components/users/user8.yml
+    response:
+      status_code: 201

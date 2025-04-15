@@ -1,0 +1,19 @@
+from typing import Protocol
+from uuid import UUID
+
+from src.core.domain import BaseDomain
+from src.modules.base.domain.value_objects import Pagination
+
+
+class BaseRepository[D: BaseDomain](Protocol):  # type: ignore
+    async def get_by_id(self, obj_id: UUID) -> D: ...
+
+    async def get_all(self) -> list[D]: ...
+
+    async def get_all_paginated(self, pagination: Pagination) -> list[D]: ...
+
+    async def create(self, obj: D) -> D: ...
+
+    async def update(self, obj: D) -> D: ...
+
+    async def delete(self, obj_id: UUID) -> bool: ...

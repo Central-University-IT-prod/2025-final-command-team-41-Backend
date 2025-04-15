@@ -1,0 +1,47 @@
+[project]
+name = "prod-backend"
+version = "0.1.0"
+description = "PROD Final Stage Backend"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.115.8",
+    "pydantic[email]>=2.10.6",
+    "pydantic-settings>=2.8.0",
+    "sqlalchemy>=2.0.38",
+    "uvicorn>=0.34.0",
+    "dishka>=1.4.2",
+    "python-jose[cryptography]>=3.4.0",
+    "passlib[argon2,bcrypt]>=1.7.4",
+    "asyncpg>=0.30.0",
+    "aio-pika>=9.5.4",
+    "prometheus-fastapi-instrumentator>=7.0.2",
+    "alembic>=1.14.1",
+    "greenlet>=3.1.1",
+    "aiohttp>=3.11.13",
+    "ruff>=0.9.8",
+    "isort>=6.0.1",
+    "pyjwt>=2.10.1",
+    "aioboto3==13.0.0",
+    "pre-commit>=4.1.0",
+    "python-multipart>=0.0.20",
+    "tavern>=2.11.0",
+    "httpx>=0.28.1",
+    "coverage>=7.6.12",
+    "faker>=36.1.1",
+    "pytest-asyncio>=0.23.8",
+    "pytz>=2025.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.pytest.ini_options]
+log_cli = true
+log_cli_level = "INFO"
+
+filterwarnings = "ignore::DeprecationWarning"
